@@ -1,0 +1,6 @@
+framework module Pods_mission_family_ios_mission_family_iosUITests {
+  umbrella header "Pods-mission-family-ios-mission-family-iosUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
