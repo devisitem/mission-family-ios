@@ -32,8 +32,24 @@ struct MainSignupView: View {
                             print("focus in")
                         } else {
                             let accountRequest = AccountRequest(id: username)
-                            let isChecked = get(endPoint: "/api/users/duplicateCheck", requestBody: accountRequest)
-                            print("is checked ? : \(isChecked)")
+                            let response = get(endPoint: "/api/users/duplicateCheck", requestBody: accountRequest)
+                            
+                            guard let data = response else {
+                                debugPrint("response at Service : \(String(describing:response))")
+                                return
+                            }
+                            print("data: \(data)")
+                            guard let checked = response?.data?.checkedId else {
+                                debugPrint("Cannot extract to checked id in response \(String(describing: response))")
+                                return
+                            }
+                            
+                            if checked == username {
+                                print("You can this id \(checked)")
+                            } else {
+                                print("You can't use this id.")
+                            }
+                            
                         }
                     })
                         .font(Font.system(size: 15, weight: .medium, design: .default))

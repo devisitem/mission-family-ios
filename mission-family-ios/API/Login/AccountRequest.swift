@@ -20,7 +20,7 @@ extension Encodable {
     }
 }
 
-protocol MissionRequest : Encodable  {
+protocol MissionRequest : Codable  {
     
 }
 
