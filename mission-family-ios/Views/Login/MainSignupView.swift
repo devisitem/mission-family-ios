@@ -52,9 +52,9 @@ struct MainSignupView: View {
                             
                         }
                     })
-                        .font(Font.system(size: 15, weight: .medium, design: .default))
-                        .padding(.vertical, 20)
-                        .padding(.horizontal, 30)
+                    .font(Font.system(size: 15, weight: .medium, design: .default))
+                    .padding(.vertical, 20)
+                    .padding(.horizontal, 30)
                     
                     SecureField("비밀번호", text: $password)
                         .font(Font.system(size: 15, weight: .medium, design: .default))

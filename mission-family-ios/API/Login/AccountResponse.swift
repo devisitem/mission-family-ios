@@ -27,7 +27,7 @@ func get(endPoint: String, requestBody: Codable) -> MissionResponse<AccountRespo
     let host = "http://localhost:8364"
     let url = host + endPoint
     
-    var resBody: MissionResponse<AccountResponse>?
+     var resBody: MissionResponse<AccountResponse>? = nil
     debugPrint("----- Start Connection to Server ----")
     
     
@@ -52,14 +52,22 @@ func get(endPoint: String, requestBody: Codable) -> MissionResponse<AccountRespo
             debugPrint("Can't assign response body with \(String(describing: data.value))")
             return
         }
-        
         resBody = res
+        
+        debugPrint("resBody1 : \(String(describing: resBody))")
         
         debugPrint("----- End Connection to Server ------")
     }
     
-    debugPrint("resBody : \(String(describing: resBody))")
-    
     return resBody
     
+}
+
+
+func gerData() {
+    let url = "http://localhost:8364/api/users/duplicateCheck"
+    APIManager.shared.session.request(url).responseData(completionHandler: { res in
+        debugPrint(res)
+        
+    })
 }
